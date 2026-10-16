@@ -1,0 +1,217 @@
+def add(x, y):
+    return x + y
+def subtract(x, y):
+    return x - y
+def multiply(x, y):
+    return x * y
+def divide(x, y):
+    if y == 0:
+        raise ValueError("Cannot divide by zero.")
+    return x / y
+    
+
+print("Select operation:")
+print("1. Add / Subtract ")
+print("2. Multiply/Divide")
+print("3. Trigonometric Functions / Inverse Trigonometric Functions")
+print("4. Powers and Roots")
+print ("5. Logarithms")
+print("6. Word Problems")
+print ("7. Beta: AI problem solver")
+print ("8. Graphing Calculator")
+print("9. About")
+print("Aditional features will be added in the future. Please check back later for updates.")
+
+while True:
+    choice = input("Enter choice (1/2/3/4/5/6/7/8/9): ")
+    if choice == '1':
+        add_choice = input("Addition or Subtraction? Back? (1/2/3): ")
+        if add_choice == '1':
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                print(f"{num1} + {num2} = {add(num1, num2)}")
+            except ValueError:
+                print("Invalid input. Please enter numeric values.")
+        elif add_choice == '2':
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                print(f"{num1} - {num2} = {subtract(num1, num2)}")
+            except ValueError:
+                print("Invalid input. Please enter numeric values.")
+        elif add_choice == '3':
+            continue
+    if choice == '2':
+        mult_choice = input("Multiplication or Division? Back? (1/2/3): ")
+        if mult_choice == '1':
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                print(f"{num1} * {num2} = {multiply(num1, num2)}")
+            except ValueError:
+                print("Invalid input. Please enter numeric values.")
+        elif mult_choice == '2':
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                print(f"{num1} / {num2} = {divide(num1, num2)}")
+            except ValueError as e:
+                print(e)
+        elif mult_choice == '3':
+            continue        
+    if choice == '3':
+        import math
+        print("Select Trigonometric Function:")
+        print("1. Sine")
+        print("2. Cosine")
+        print("3. Tangent")
+        print("4. Cosecant")
+        print("5. Secant")
+        print("6. Cotangent")
+        print("7. Back")
+        function_choice = input("Enter choice (1/2/3/4/5/6/7): ")
+        if function_choice == '7':
+            continue
+        trig_choice = input("Do you want to calculate the function or its inverse? (1 for function, 2 for inverse): ")
+        if trig_choice == '1':
+            try:
+                angle = float(input("Enter angle in degrees: "))
+                radians = math.radians(angle)
+                if function_choice == '1':
+                    print(f"Sine({angle}) = {math.sin(radians)}")
+                elif function_choice == '2':
+                    print(f"Cosine({angle}) = {math.cos(radians)}")
+                elif function_choice == '3':
+                    print(f"Tangent({angle}) = {math.tan(radians)}")
+                elif function_choice == '4':
+                    print(f"Cosecant({angle}) = {1 / math.sin(radians)}")
+                elif function_choice == '5':
+                    print(f"Secant({angle}) = {1 / math.cos(radians)}")
+                elif function_choice == '6':
+                    print(f"Cotangent({angle}) = {1 / math.tan(radians)}")
+                else:
+                    print("Invalid input. Please select a valid option.")
+            except ValueError:
+                print("Invalid input. Please enter numeric values.")
+        if trig_choice == '2':
+            import math
+            try:
+                value = float(input("Enter value: "))
+                if function_choice == '1':
+                    print(f"Arcsine({value}) = {math.degrees(math.asin(value))} degrees")
+                elif function_choice == '2':
+                    print(f"Arccosine({value}) = {math.degrees(math.acos(value))} degrees")
+                elif function_choice == '3':
+                    print(f"Arctangent({value}) = {math.degrees(math.atan(value))} degrees")
+                elif function_choice == '4':
+                    print(f"Arccosecant({value}) = {math.degrees(math.asin(1/value))} degrees")
+                elif function_choice == '5':
+                    print(f"Arcsecant({value}) = {math.degrees(math.acos(1/value))} degrees")
+                elif function_choice == '6':
+                    print(f"Arccotangent({value}) = {math.degrees(math.atan(1/value))} degrees")
+                else:
+                    print("Invalid input. Please select a valid option.")
+            except ValueError:
+                print("Invalid input. Please enter numeric values.")
+    if choice == '4':
+        import math
+        print("Select operation:")
+        print("1. Power")
+        print("2. Root")
+        print("3. Back")
+        operation_choice = input("Enter choice (1/2/3): ")
+        if operation_choice == '1':
+            try:
+                base = input("Enter base : ")
+                value = float(input("Enter exponent: "))
+                if base == 'e':
+                    print(f"e^{value} = {math.exp(value)}")
+                else:
+                    print(f"{base}^{value} = {math.pow(float(base), value)}")
+            except ValueError:
+                print("Invalid input. Please enter numeric values.")
+        elif operation_choice == '2':
+            try:
+                value = float(input("Enter radicand: "))
+                root = float(input("Enter index: "))
+                print(f"{root}th root of {value} = {math.pow(value, 1/root)}")
+            except ValueError:
+                print("Invalid input. Please enter numeric values.")
+        elif operation_choice == '3':
+            continue        
+    if choice == '5':
+        import math
+        base_choice = input("Select base (1 for natural log, 2 for custom base, 3 for Back): ")
+        if base_choice == '3':
+            continue
+        if base_choice not in ('1', '2'):
+            print("Invalid input. Please select a valid option.")
+            continue
+        try:
+            value = float(input("Enter logarithm value: "))
+            if base_choice == '1':
+                print(f"Natural log of {value} = {math.log(value)}")
+            else:
+                custom_base = float(input("Enter custom base: "))
+                print(f"Log base {custom_base} of {value} = {math.log(value, custom_base)}")
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
+    if choice == '6':
+        import random
+        score = 0
+        for i in range(10):
+            num1 = random.randint(20, 100)
+            num2 = random.randint(20, 100)
+            operation = random.choice(['+', '-', '*'])
+            if operation == '+':
+                answer = num1 + num2
+            elif operation == '-':
+                answer = num1 - num2
+            elif operation == '*':
+                answer = num1 * num2
+            user_answer = float(input(f"Question {i+1}: What is {num1} {operation} {num2}? "))
+            if user_answer == answer:
+                print("Correct!")
+                score += 1
+            else:
+                print(f"Incorrect. The correct answer is {answer}.")
+        print(f"You scored {score} out of 10.")
+    if choice == '7':
+        print("AI problem solver is currently in beta. Please check back later for updates. ")
+        ai_choice =input("Press 2 to go back to the main menu.")
+        if ai_choice == '2':
+            continue      
+    if choice == '8':
+        import matplotlib.pyplot as plt
+        import numpy as np
+
+        print("Graphing Calculator")
+        print("Enter the function in terms of x (e.g., x**2, np.sin(x), etc.)")
+        print('Note: the calculator needs a bit more fine tuning, so please don\'t take it too seriously')
+        graph_input= input("Enter function to graph (or type 2 to return to main menu): ")
+        if graph_input == '2':
+            continue
+        function_input = input("f(x) = ")
+        try:
+            x = np.linspace(-10, 10, 400)
+            y = eval(function_input)
+            plt.plot(x, y)
+            plt.title(f"Graph of f(x) = {function_input}")
+            plt.xlabel("x")
+            plt.ylabel("f(x)")
+            plt.grid()
+            plt.axhline(0, color='black',linewidth=0.5, ls='--')
+            plt.axvline(0, color='black',linewidth=0.5, ls='--')
+            plt.show()
+        except Exception as e:
+            print(f"Error in graphing the function: {e}")
+    if choice == '9':
+        print("Pixelator is the start of my python journey. It is a simple caluclator in progress. I will ship this, but I will be back to make this good, and maybe build the hardware for it too. ")
+        print("Be back soon!")
+        print("Version: 1.0")
+        print("Developed by: Aadit Sarangi")
+        about_imput = input("Press 2 to go back to the main menu.")
+        if about_imput == '2':
+            continue
+    
