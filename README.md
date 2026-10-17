@@ -1,4 +1,4 @@
-# aadit
+
 # Pixelator
 
 Pixelator is a simple calculator I made in Python. It's the start of my Python journey, and it's still a work in progress. I'm going to ship it now, but I'll be back to make it better, and maybe even build the hardware for it someday.
